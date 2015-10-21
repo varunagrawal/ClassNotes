@@ -2,18 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
 import onenote
+import bitbucket
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
     
-def sign_in(request):
+def ms_sign_in(request):
     print "Redirecting user"
     
     redirect_to = "https://login.live.com/oauth20_authorize.srf?client_id={0}&scope=wl.basic%20office.onenote_create%20office.onenote&response_type=code&redirect_uri={1}".format(onenote.CLIENT_ID, onenote.REDIRECT_URI)
     return HttpResponseRedirect(redirect_to)
     
-def signed_in(request):
+def ms_signed_in(request):
     if onenote.verify(request):
     
         data = onenote.get_auth_token(request)
@@ -21,6 +22,14 @@ def signed_in(request):
         return HttpResponseRedirect("/notes/notebooks")
     
     else: return HttpResponse("Please provide permission to ClassNotes.\n {0}".format(request)) 
+
+
+def atlas_sign_in(request):
+    return HttpResponseRedirect(bitbucket.get_auth_url())
+
+def atlas_signed_in(request):
+    if bitbucket.verify(): bitbucket.get_auth_token(request)
+    else: return HttpResponse("Please grant access to Bitbucket")
     
 def notebooks(request):
     notebooks = onenote.get_notebooks()
@@ -40,13 +49,13 @@ def pages(request):
     pages = onenote.get_pages(request.GET["id"], request.GET["name"])
     context = { 'pages': pages }
     #print request.GET["name"]
-    #return HttpResponse(str(pages))    
-    return render(request, 'pages.html', context)
     
     # write the pages to the repository Wiki and stay on the page
     
-    # code to write to wiki
+    # code to write to wiik
     
+    #return HttpResponse(str(pages))    
+    return render(request, 'pages.html', context)
     #return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     
     
