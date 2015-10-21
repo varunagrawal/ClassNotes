@@ -28,7 +28,7 @@ def get_auth_token(request):
     r = requests.post("https://login.live.com/oauth20_token.srf", data=data, headers=headers)
     
     ACCESS_TOKEN = r.json()["access_token"]
-    with open('access_token', 'w') as f:
+    with open('onenote_access_token', 'w') as f:
         f.write(ACCESS_TOKEN)
         
     print ACCESS_TOKEN
