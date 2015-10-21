@@ -1,0 +1,22 @@
+{
+    "key": "classnotes",
+    "name": "ClassNotes",
+    "description": "Make your repository your own class notebook",
+    "baseUrl": "https://classnotes-varunagrawal.c9.io",
+    "modules": {
+        "oauthConsumer": {
+            "clientId": "dAhCaXVVvRdCjh7BcA"
+        },
+        "repoPages": [{
+            "key": "notes",
+            "name": {
+                "value": "Import Notes"
+            },
+            "url": "https://classnotes-varunagrawal.c9.io/notes?repo_uuid={repo_uuid}",
+            "location": "org.bitbucket.repository.navigation",
+            "params": {}
+        }]
+    },
+    "scopes": ["wiki"],
+    "contexts": ["personal"]
+}

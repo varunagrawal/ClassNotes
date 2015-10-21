@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script src="https://bitbucket.org/atlassian-connect/all.js" data-options="sizeToParent:true"></script>
+        <title>Sections in Notebook</title>
+    </head>
+    <body>
+        <p>Sections in your notebook:</p>
+        <ul>
+            {% for section in sections.value %}
+            <li><a href="/notes/pages?id={{section.id}}&name={{section.name}}">{{ section.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <p>Please choose one to get the pages in the section!</p>
+    </body>
+</html>

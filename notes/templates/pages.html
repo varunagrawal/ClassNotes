@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script src="https://bitbucket.org/atlassian-connect/all.js" data-options="sizeToParent:true"></script>
+        <title>Pages in Section</title>
+    </head>
+    <body>
+        <p>Pages in your selected Section:</p>
+        <ul>
+            {% for page in pages.value %}
+            <li><a href="/notes/page?id={{page.id}}&name={{page.title}}">{{ page.title }}</a> <a href={{page.links.oneNoteWebUrl.href}} target="_blank">[OneNote]</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

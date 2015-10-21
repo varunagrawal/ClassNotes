@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="https://bitbucket.org/atlassian-connect/all.js" data-options="sizeToParent:"></script>
+        <title>All your notebooks</title>
+    </head>
+    <body>
+        <p>List of your notebooks are:</p>
+        <ul>
+            {% for notebook in notebooks.value %}
+            {% if notebook.userRole == "Owner" %}
+            <li><a href="/notes/sections?id={{notebook.id}}&name={{notebook.name}}">{{ notebook.name }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <p>Please choose one!</p>
+        <br/>
+        <br/>
+    </body>
+</html>
