@@ -72,7 +72,7 @@ python-dateutil==1.5
 python-glanceclient==0.12.0
 python-keystoneclient==0.7.1
 python-neutronclient==2.3.4
-python-novnc==0.4-dfsg-1-20130425-git4973b9cc80
+#python-novnc==0.4-dfsg-1-20130425-git4973b9cc80
 python-openid==2.2.5
 pytz==2012c
 repoze.lru==0.6
