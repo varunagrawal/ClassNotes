@@ -28,7 +28,7 @@ configobj==4.7.2
 decorator==3.4.0
 dj-database-url==0.3.0
 dj-static==0.0.6
-duplicity==0.6.23
+#duplicity==0.6.23
 eventlet==0.13.0
 greenlet==0.4.2
 html5lib==0.999
