@@ -85,7 +85,7 @@ six==1.5.2
 sqlalchemy-migrate==0.8.2
 static3==0.6.1
 stevedore==0.14.1
-suds==0.4.1
+#suds==0.4.1
 urllib3==1.7.1
 virtualenv==1.11.4
 virtualenv-clone==0.2.4
