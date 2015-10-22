@@ -9,12 +9,14 @@ from django.core.urlresolvers import reverse
 
 CLIENT_ID = "0000000044169032"
 CLIENT_SECRET = "ldaqv85Q8ecpwvltVb4DRlBmLzWPNab7"
-REDIRECT_URI = "https://classnotes-varunagrawal.c9.io/notes/signedin"
+REDIRECT_URI = "https://classnotes-varunagrawal.c9.io/notes/ms_signedin"
 
 BASE_URL = "https://www.onenote.com/api/v1.0/me/notes{0}"
 
+ONENOTE_ACCESS_TOKEN_FILE = "onenote_access_token"
+
 def get_request_headers():
-    with open("access_token") as f:
+    with open(ONENOTE_ACCESS_TOKEN_FILE) as f:
         ACCESS_TOKEN = f.read()
         
     headers = {"Authorization": "Bearer " + ACCESS_TOKEN}
@@ -28,10 +30,10 @@ def get_auth_token(request):
     r = requests.post("https://login.live.com/oauth20_token.srf", data=data, headers=headers)
     
     ACCESS_TOKEN = r.json()["access_token"]
-    with open('onenote_access_token', 'w') as f:
+    with open(ONENOTE_ACCESS_TOKEN_FILE, 'w') as f:
         f.write(ACCESS_TOKEN)
         
-    print ACCESS_TOKEN
+    #print ACCESS_TOKEN
     return r.json()
     
 def verify(request):
@@ -73,6 +75,17 @@ def get_page(id):
 
 def get_page_content(id):
     headers = get_request_headers()
-    r = requests.get(BASE_URL.format("/pages/{0}/content?includeIDs=true".format(id)), headers=headers)
+    r = requests.get(BASE_URL.format("/pages/{0}/content".format(id)), headers=headers)
     
     return r.text.encode('utf-8')
+    
+def get_page_links_md(pages):
+    all_pages = pages["value"]
+    pages_md = []
+    
+    for page in all_pages:
+        s = "* [{0}]({1})".format(page["title"], page["links"]["oneNoteWebUrl"]["href"])
+        pages_md.append(s)
+    
+    return pages_md
+    

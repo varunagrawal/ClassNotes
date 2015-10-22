@@ -10,4 +10,4 @@ OneNote API
 * [OneNote Scopes](https://msdn.microsoft.com/en-us/library/office/dn807159.aspx)
 * [Request Authentication](https://msdn.microsoft.com/en-us/library/office/dn575435.aspx#sectionSection4)
 * [Microsoft OAuth2 Guide](https://msdn.microsoft.com/en-us/library/hh243647.aspx)
-* [Summary of Apps]()
+* [Summary of Apps](https://account.live.com/developers/applications/apisettings/0000000044169032)

@@ -2,7 +2,7 @@
     "key": "classnotes",
     "name": "ClassNotes",
     "description": "Make your repository your own class notebook",
-    "baseUrl": "https://classnotes-varunagrawal.c9.io",
+    "baseUrl": "https://classnotes-varunagrawal.c9.io/notes/atlas_signedin",
     "modules": {
         "oauthConsumer": {
             "clientId": "dAhCaXVVvRdCjh7BcA"
@@ -12,7 +12,7 @@
             "name": {
                 "value": "Import Notes"
             },
-            "url": "https://classnotes-varunagrawal.c9.io/notes?repo_uuid={repo_uuid}",
+            "url": "https://classnotes-varunagrawal.c9.io/notes/?repo_uuid={repo_uuid}",
             "location": "org.bitbucket.repository.navigation",
             "params": {}
         }]

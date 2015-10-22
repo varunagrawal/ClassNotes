@@ -1,5 +1,6 @@
 # Access Token Files
 *access_token
+repo_uuid
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
