@@ -1,0 +1,1 @@
+web: gunicorn classnotes.wsgi --log-file -
