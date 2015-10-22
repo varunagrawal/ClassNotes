@@ -20,7 +20,7 @@ amqplib==1.0.2
 anyjson==0.3.3
 argparse==1.2.1
 boto==2.20.1
-chardet==2.0.1
+chardet==2.3.0
 cliff==1.4.5
 cmd2==0.6.7
 colorama==0.2.5
