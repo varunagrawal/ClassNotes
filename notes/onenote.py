@@ -9,7 +9,7 @@ import utils
 
 CLIENT_ID = "0000000044169032"
 CLIENT_SECRET = "ldaqv85Q8ecpwvltVb4DRlBmLzWPNab7"
-REDIRECT_URI = "http://afternoon-waters-2404.herokuapp.com/notes/" #"https://classnotes-varunagrawal.c9.io/notes/ms_signedin"
+REDIRECT_URI = "https://afternoon-waters-2404.herokuapp.com/notes/ms_signed_in" #"https://classnotes-varunagrawal.c9.io/notes/ms_signedin"
 
 BASE_URL = "https://www.onenote.com/api/v1.0/me/notes{0}"
 
