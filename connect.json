@@ -2,7 +2,7 @@
     "key": "classnotes",
     "name": "ClassNotes",
     "description": "Make your repository your own class notebook",
-    "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes",
+    "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes/atlas_signedin",
     "modules": {
         "oauthConsumer": {
             "clientId": "dAhCaXVVvRdCjh7BcA"
@@ -10,7 +10,7 @@
         "repoPages": [{
             "key": "notes",
             "name": {
-                "value": "Classs Notes"
+                "value": "ClassNotes"
             },
             "url": "https://afternoon-waters-2404.herokuapp.com/notes?repo_uuid={repo_uuid}",
             "location": "org.bitbucket.repository.navigation",
