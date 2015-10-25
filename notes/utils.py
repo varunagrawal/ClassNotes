@@ -5,7 +5,7 @@ def in_db(repo_uuid):
 
     with con:
         cur = con.cursor()    
-        cur.execute("SELECT * FROM Keys WHERE Repo_UUID ='{0}'".format(repo_uuid))
+        cur.execute("SELECT * FROM Keys WHERE Repo_UUID='{0}'".format(repo_uuid))
         
         row = cur.fetchone()
         print row

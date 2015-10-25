@@ -2,14 +2,30 @@
     <head>
         <script src="https://bitbucket.org/atlassian-connect/all.js" data-options="sizeToParent:true"></script>
         <title>Sections in Notebook</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     </head>
     <body>
-        <p>Sections in your notebook:</p>
-        <ul>
-            {% for section in sections.value %}
-            <li><a href="/notes/pages?id={{section.id}}&name={{section.name}}">{{ section.name }}</a></li>
-            {% endfor %}
-        </ul>
-        <p>Please choose one to get the pages in the section!</p>
+        <div class="container" role="main">
+            <h3>Sections in your notebook</h3>
+            <ul class="list-group">
+                {% for section in sections.value %}
+                <li class="list-group-item"><a href="/notes/pages?id={{section.id}}&name={{section.name}}">{{ section.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <p class="lead text-primary">Please choose one to get the pages in the section!</p>
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

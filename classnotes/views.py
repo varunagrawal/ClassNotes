@@ -8,3 +8,7 @@ def connect_json(request):
     # It's usually a good idea to set the 'Content-Length' header too.
     # You can also set any other required headers: Cache-Control, etc.
     return response
+    
+def dev_connect_json(request):
+    response = HttpResponse(open('dev_connect.json').read())
+    return response

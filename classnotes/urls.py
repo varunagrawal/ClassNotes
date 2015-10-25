@@ -8,5 +8,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^connect.json', 'classnotes.views.connect_json', name='connect_json'),
+    url(r'^dev_connect.json', 'classnotes.views.dev_connect_json', name='dev_connect_json'),
     url(r'^notes/', include('notes.urls')),
 )

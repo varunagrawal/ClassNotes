@@ -2,18 +2,39 @@
     <head>
         <script src="https://bitbucket.org/atlassian-connect/all.js" data-options="sizeToParent:"></script>
         <title>All your notebooks</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
     </head>
     <body>
-        <p>List of your notebooks are:</p>
-        <ul>
-            {% for notebook in notebooks.value %}
-            {% if notebook.userRole == "Owner" %}
-            <li><a href="/notes/sections?id={{notebook.id}}&name={{notebook.name}}">{{ notebook.name }}</a></li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        <p>Please choose one!</p>
-        <br/>
-        <br/>
+        <div class="container" role="main">
+            <div class="page-header">
+                <p class="lead">List of your notebooks</p>
+                <ul class="list-group">
+                {% for notebook in notebooks.value %}
+                {% if notebook.userRole == "Owner" %}
+                <li class="list-group-item"><a class="btn btn-default" href="/notes/sections?id={{notebook.id}}&name={{notebook.name}}">{{ notebook.name }}</a></li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+                <br>
+                <p class="lead text-primary">Please choose one!</p>
+                    
+            </div>
+            
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
     </body>
 </html>

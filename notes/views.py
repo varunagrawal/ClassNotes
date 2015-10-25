@@ -13,9 +13,12 @@ def index(request):
     
     if "repo_uuid" in request.GET:
         repo_uuid = request.GET["repo_uuid"]
+        #bitbucket_login = bitbucket.is_logged_in(repo_uuid)
         #bitbucket.set_repo_uuid(repo_uuid)
+        
+        #response = render(request, 'index.html?bitbucket_login={0}'.format(bitbucket_login))    
         response.set_cookie( 'repo_uuid', repo_uuid)
-    
+        
     return response
     
     
@@ -47,7 +50,8 @@ def atlas_signed_in(request):
         print "getting token"
         bitbucket.get_auth_token(request)
         print "got token"
-        return HttpResponseRedirect("/notes")
+        
+        return HttpResponseRedirect("/notes?bitbucket_login=1")
         
     else: return HttpResponse("Please grant access to Bitbucket")
     
