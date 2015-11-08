@@ -1,6 +1,8 @@
 # ClassNotes
 Migrate OneNote class notes to your repository Wiki
 
+ClassNotes got tweeted by the OneNote API dev team!
+![onenote dev](https://raw.githubusercontent.com/varunagrawal/ClassNotes/master/images/OneNoteDev.png)
 
 OneNote API
 ===========
