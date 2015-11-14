@@ -6,10 +6,18 @@ import bitbucket
 
 # sample repo_uuid = 3d316876-a913-4b20-b183-d57e919f96dc
 
+BASE_URL = "https://afternoon-waters-2404.herokuapp.com"
+#DEV_URL = "https://classnotes-varunagrawal.c9.io"
+
 # Create your views here.
 def index(request):
     
-    response = render(request, 'index.html')
+    bitbucket_login_url = "{0}/notes/atlas_signin".format(BASE_URL)
+    microsoft_login_url = "{0}/notes/ms_signin".format(BASE_URL)
+    
+    context = {'bitbucket_login': bitbucket_login_url, 'microsoft_login': microsoft_login_url}
+    
+    response = render(request, 'index.html', context)
     
     if "repo_uuid" in request.GET:
         repo_uuid = request.GET["repo_uuid"]
