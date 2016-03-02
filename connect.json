@@ -1,22 +1,28 @@
 {
-    "key": "classnotes",
-    "name": "ClassNotes",
-    "description": "Make your repository your own class notebook",
-    "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes/atlas_signedin",
-    "modules": {
-        "oauthConsumer": {
-            "clientId": "dAhCaXVVvRdCjh7BcA"
-        },
-        "repoPages": [{
-            "key": "notes",
-            "name": {
-                "value": "ClassNotes"
-            },
-            "url": "https://afternoon-waters-2404.herokuapp.com/notes/?repo_uuid={repo_uuid}",
-            "location": "org.bitbucket.repository.navigation",
-            "params": {}
-        }]
+  "key": "classnotes",
+  "name": "ClassNotes",
+  "description": "Make your repository your own class notebook",
+  "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes/atlas_signedin",
+  "modules": {
+    "oauthConsumer": {
+      "clientId": "dAhCaXVVvRdCjh7BcA"
     },
-    "scopes": ["wiki"],
-    "contexts": ["personal"]
+    "repoPages": [
+      {
+        "key": "notes",
+        "name": {
+          "value": "ClassNotes"
+        },
+        "url": "https://afternoon-waters-2404.herokuapp.com/notes/?repo_uuid={repo_uuid}",
+        "location": "org.bitbucket.repository.navigation",
+        "params": {}
+      }
+    ]
+  },
+  "scopes": [
+    "wiki"
+  ],
+  "contexts": [
+    "personal"
+  ]
 }
