@@ -28,13 +28,14 @@ def get_request_headers(repo_uuid):
 
 
 def get_auth_token(request):
-    
-    headers = {"Content-type": "application/x-www-form-urlencoded"}
-    code = request.GET["code"]
-    
-    data = {"client_id": CLIENT_ID, "redirect_uri": REDIRECT_URI, "client_secret": CLIENT_SECRET, "code":code, "grant_type":"authorization_code"}
 
     try:
+        headers = {"Content-type": "application/x-www-form-urlencoded"}
+        code = request.GET["code"]
+
+        data = {"client_id": CLIENT_ID, "redirect_uri": REDIRECT_URI,
+                "client_secret": CLIENT_SECRET, "code": code, "grant_type": "authorization_code"}
+
         r = requests.post("https://login.live.com/oauth20_token.srf", data=data, headers=headers)
 
         ACCESS_TOKEN = r.json()["access_token"]

@@ -14,6 +14,9 @@ def get_auth_url():
 
 def is_logged_in(repo_uuid):
     try:
+        if repo_uuid is None:
+            raise Exception
+
         return utils.in_db(repo_uuid)
         
         # with open("bitbucket_access_token") as f:

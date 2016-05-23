@@ -22,7 +22,6 @@ def index(request):
         # bitbucket.set_repo_uuid(repo_uuid)
         
         # response = render(request, 'index.html?bitbucket_login={0}'.format(bitbucket_login))
-        return HttpResponse("Hello World")
 
     need_ms_signin = onenote.get_auth_token(request) is None
     need_atlassian_signin = not bitbucket.is_logged_in(repo_uuid)
