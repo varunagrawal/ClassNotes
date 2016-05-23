@@ -26,7 +26,7 @@ def index(request):
     need_ms_signin = onenote.get_auth_token(request) is None
     need_atlassian_signin = bitbucket.is_logged_in(repo_uuid) is not True
 
-    context = {'bitbucket_login': bitbucket_login_url, 'need_atlassian_signin': need_atlassian_signin
+    context = {'bitbucket_login': bitbucket_login_url, 'need_atlassian_signin': need_atlassian_signin,
                'microsoft_login': microsoft_login_url, 'need_ms_signin': need_ms_signin}
 
     response = render(request, 'index.html', context)
