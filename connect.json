@@ -2,7 +2,7 @@
   "key": "classnotes",
   "name": "ClassNotes",
   "description": "Make your repository your own class notebook",
-  "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes/atlas_signedin",
+  "baseUrl": "https://afternoon-waters-2404.herokuapp.com/notes",
   "modules": {
     "oauthConsumer": {
       "clientId": "dAhCaXVVvRdCjh7BcA"
