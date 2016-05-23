@@ -66,7 +66,7 @@ def atlas_signed_in(request):
         return HttpResponseRedirect("/notes?bitbucket_login=1")
         
     else:
-        return HttpResponse("Please grant access to Bitbucket")
+        return HttpResponse("Please grant access to Bitbucket, {0}".format(request.GET))
     
     
 def notebooks(request):

@@ -52,7 +52,7 @@ def get_auth_token(request):
 
 def verify(request):
 
-    # ensure we have a session state and the state value is the same as what microsoft returned
+    # ensure we have a session state and the state value is the same as what Bitbucket returned
     if 'code' not in request.GET:
         return False
     else:
