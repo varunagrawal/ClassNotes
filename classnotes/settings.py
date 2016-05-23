@@ -94,10 +94,10 @@ STATIC_ROOT = 'staticfiles'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] =  dj_database_url.config()
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 X_FRAME_OPTIONS = 'ALLOW-FROM https://bitbucket.org'
