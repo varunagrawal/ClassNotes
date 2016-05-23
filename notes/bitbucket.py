@@ -28,7 +28,7 @@ def get_auth_token(request):
     # headers = {"Content-type": "application/x-www-form-urlencoded"}
     code = request.GET["code"]
     
-    data = {"code": code, "grant_type":"authorization_code"}
+    data = {"code": code, "grant_type": "authorization_code"}
     auth = (CLIENT_ID, CLIENT_SECRET)
 
     try:

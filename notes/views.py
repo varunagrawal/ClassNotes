@@ -9,22 +9,22 @@ import bitbucket
 BASE_URL = "https://afternoon-waters-2404.herokuapp.com"
 # DEV_URL = "https://classnotes-varunagrawal.c9.io"
 
+
 # Create your views here.
 def index(request):
-    
     bitbucket_login_url = "{0}/notes/atlas_signin".format(BASE_URL)
     microsoft_login_url = "{0}/notes/ms_signin".format(BASE_URL)
 
     repo_uuid = None
     if "repo_uuid" in request.GET:
         repo_uuid = request.GET["repo_uuid"]
-        #bitbucket_login = bitbucket.is_logged_in(repo_uuid)
-        #bitbucket.set_repo_uuid(repo_uuid)
+        # bitbucket_login = bitbucket.is_logged_in(repo_uuid)
+        # bitbucket.set_repo_uuid(repo_uuid)
         
-        #response = render(request, 'index.html?bitbucket_login={0}'.format(bitbucket_login))
+        # response = render(request, 'index.html?bitbucket_login={0}'.format(bitbucket_login))
 
     need_ms_signin = onenote.get_auth_token(request) is None
-    need_atlassian_signin = bitbucket.is_logged_in(repo_uuid) is not True
+    need_atlassian_signin = not bitbucket.is_logged_in(repo_uuid)
 
     context = {'bitbucket_login': bitbucket_login_url, 'need_atlassian_signin': need_atlassian_signin,
                'microsoft_login': microsoft_login_url, 'need_ms_signin': need_ms_signin}
@@ -52,7 +52,6 @@ def ms_signed_in(request):
         return HttpResponse("Please provide permission to ClassNotes.\n {0}".format(request))
 
 
-
 def atlas_sign_in(request):
     print("Bitbucket Sign in")
     return HttpResponseRedirect(bitbucket.get_auth_url())
@@ -66,38 +65,40 @@ def atlas_signed_in(request):
         
         return HttpResponseRedirect("/notes?bitbucket_login=1")
         
-    else: return HttpResponse("Please grant access to Bitbucket")
+    else:
+        return HttpResponse("Please grant access to Bitbucket")
     
     
 def notebooks(request):
     
-    if request.COOKIES.has_key( 'repo_uuid' ):
-        repo_uuid = request.COOKIES[ 'repo_uuid' ]
+    if 'repo_uuid' in request.COOKIES:
+        repo_uuid = request.COOKIES['repo_uuid']
     
-    notebooks = onenote.get_notebooks(repo_uuid)
-    context = {'notebooks': notebooks}
-    #print(notebooks
+    books = onenote.get_notebooks(repo_uuid)
+    context = {'notebooks': books}
+    # print(notebooks
     
     return render(request, 'notebooks.html', context)#("List of Notebooks\n{0}".format(str(notebooks)))
 
 
 def sections(request):
-    if request.COOKIES.has_key( 'repo_uuid' ):
-        repo_uuid = request.COOKIES[ 'repo_uuid' ]
+    if 'repo_uuid' in request.COOKIES:
+        repo_uuid = request.COOKIES['repo_uuid']
     
     sections = onenote.get_sections(request.GET["id"], request.GET["name"], repo_uuid)
-    context = {'sections': sections }
+    context = {'sections': sections}
     
-    #return HttpResponse(sections["value"])
+    # return HttpResponse(sections["value"])
     return render(request, 'sections.html', context)
 
+
 def pages(request):
-    if request.COOKIES.has_key('repo_uuid'):
+    if 'repo_uuid' in request.COOKIES:
         repo_uuid = request.COOKIES['repo_uuid']
     
     pages = onenote.get_pages(request.GET["id"], request.GET["name"], repo_uuid)
     context = {'pages': pages}
-    #print(request.GET["name"]
+    # print(request.GET["name"]
     
     # write the pages to the repository Wiki and stay on the page
     if not bitbucket.is_logged_in(repo_uuid):
@@ -108,18 +109,18 @@ def pages(request):
     
     bitbucket.add_to_wiki(page_links_md, repo_uuid)
     
-    #return HttpResponse(str(pages))    
+    # return HttpResponse(str(pages))
     return render(request, 'pages.html', context)
-    #return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     
     
 def page(request):
     repo_uuid = None
-    if request.COOKIES.has_key( 'repo_uuid' ):
-        repo_uuid = request.COOKIES[ 'repo_uuid' ]
+    if 'repo_uuid' in request.COOKIES:
+        repo_uuid = request.COOKIES['repo_uuid']
     
     page = onenote.get_page_content(request.GET["id"], repo_uuid)
     
-    #context = { 'page': page }
-    #return render(request, 'page.html', context)
+    # context = { 'page': page }
+    # return render(request, 'page.html', context)
     return HttpResponse(str(page))

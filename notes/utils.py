@@ -1,5 +1,6 @@
 import sqlite3 as lite 
 
+
 def in_db(repo_uuid):
     con = lite.connect('classnotes.db')
 
@@ -10,8 +11,10 @@ def in_db(repo_uuid):
         row = cur.fetchone()
         print row
         
-        if row is None: return False
-        else: return True
+        if row is None:
+            return False
+        else:
+            return True
 
 
 def add_bitbucket_token_to_db(repo_uuid, ACCESS_TOKEN):   
